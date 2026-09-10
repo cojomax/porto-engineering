@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import { services } from '../data/services';
+import { contact } from '../data/contact';
 ---
 
 <Layout
@@ -97,7 +98,7 @@ import { services } from '../data/services';
 					<p>Tell us what's going on and we'll recommend the right fix — no obligation.</p>
 				</div>
 				<div class="cta__actions">
-					<a href="tel:+15551234567" class="btn btn-light">Call Now</a>
+					<a href={contact.phone.href} class="btn btn-light">Call Now</a>
 					<a href="/#contact" class="btn btn-outline btn-outline--light">Request Service</a>
 				</div>
 			</div>

@@ -1,6 +1,8 @@
 ---
 import logo from '../assets/logo-porto-plumbing.png';
 import { services } from '../data/services';
+import { contact } from '../data/contact';
+import ExternalLink from './ExternalLink.astro';
 
 const year = new Date().getFullYear();
 
@@ -93,7 +95,7 @@ const socials = [
 							stroke-width="1.5"></path>
 						<circle cx="12" cy="9.5" r="2.3" stroke="currentColor" stroke-width="1.5"></circle>
 					</svg>
-					123 Main Street, Your City, ST 00000
+					<ExternalLink href={contact.address.mapsUrl}>{contact.address.display}</ExternalLink>
 				</li>
 				<li>
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -103,7 +105,7 @@ const socials = [
 							stroke-width="1.5"
 							stroke-linejoin="round"></path>
 					</svg>
-					<a href="tel:+15551234567">084 514 5186</a>
+					<a href={contact.phone.href}>{contact.phone.display}</a>
 				</li>
 				<li>
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -118,7 +120,7 @@ const socials = [
 							stroke-width="1.5"
 							stroke-linejoin="round"></path>
 					</svg>
-					<a href="mailto:hello@portoplumbing.example">hello@portoplumbing.example</a>
+					<a href={`mailto:${contact.email}`}>{contact.email}</a>
 				</li>
 				<li>
 					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -130,7 +132,7 @@ const socials = [
 							stroke-linecap="round"
 							stroke-linejoin="round"></path>
 					</svg>
-					Mon–Fri: 7am–7pm · Sat: 8am–4pm
+					{contact.hours}
 				</li>
 			</ul>
 		</div>

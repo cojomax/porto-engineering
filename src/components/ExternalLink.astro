@@ -1,0 +1,32 @@
+---
+interface Props {
+	href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a href={href} target="_blank" rel="noopener noreferrer" class="external-link">
+	<slot />
+	<svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+		<path
+			d="M7 17 17 7M9 7h8v8"
+			stroke="currentColor"
+			stroke-width="1.75"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+		/>
+	</svg>
+</a>
+
+<style>
+	.external-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+	}
+
+	.external-link svg {
+		flex-shrink: 0;
+	}
+</style>
