@@ -1,6 +1,8 @@
 import bathroom from '../assets/bathroom.jpeg';
 import jojoTank from '../assets/jojo-tank.png';
 import solarPanelHeating from '../assets/solar-panel-heating.jpeg';
+import solarHeatedPool from '../assets/solar-heated-pool.jpeg';
+import plumbingServices from '../assets/plumbing-services.jpeg';
 
 export interface Service {
 	slug: string;
@@ -96,6 +98,44 @@ export const services: Service[] = [
 			'Maintenance and repairs to old systems.',
 			'Pool pump servicing',
 			'Pool pump installations and upgrades to systems',
+		]
+	},
+	{
+		slug: 'pool-heating',
+		title: 'Pool Heated Solar',
+		description:
+			'Solar pool heating installation, maintenance, and support for private and commercial pools — comfortable, efficient, and energy-smart year-round.',
+		icon: 'M12 3v2M12 19v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M2 12h2M20 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z',
+		image: solarHeatedPool,
+		intro:
+			"Enjoy a warm and inviting swimming experience with Porto Plumbing's solar pool heating solutions. Designed for efficiency and sustainability, our systems harness the power of the sun to maintain the perfect water temperature year-round, reducing energy costs and environmental impact.",
+		paragraphs: [
+			'Whether for private homes or commercial pools, we provide expert installation, maintenance, and support, ensuring your pool remains comfortable, reliable, and energy-smart.'
+		],
+		highlights: [
+			'Solar pool heating installation',
+			'Private & commercial pool systems',
+			'Lower energy costs & environmental impact',
+			'Ongoing maintenance & support'
+		]
+	},
+	{
+		slug: 'plumbing-services',
+		title: 'Full Plumbing Services',
+		description:
+			'Installations, repairs, maintenance, and upgrades for domestic and commercial plumbing — reliable service you can trust.',
+		icon: 'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z',
+		image: plumbingServices,
+		intro:
+			'We offer comprehensive plumbing solutions for homes and businesses, covering everything from installations and repairs to maintenance and upgrades. Our experienced team ensures every project is completed efficiently, reliably, and to the highest standards.',
+		paragraphs: [
+			'Whether it\u2019s fixing leaks, installing new systems, or integrating modern water heating solutions, we provide professional service you can trust.'
+		],
+		highlights: [
+			'Leak detection & repairs',
+			'New installations & system upgrades',
+			'Domestic & commercial maintenance',
+			'Integration with modern water heating systems'
 		]
 	}
 ];
