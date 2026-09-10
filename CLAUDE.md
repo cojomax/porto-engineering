@@ -24,6 +24,10 @@ Package manager is **pnpm** (see `pnpm-workspace.yaml`, `pnpm-lock.yaml`).
 - **Layouts/components**: `src/layouts/Layout.astro` is the base HTML shell; page-level composition wraps components (e.g. `src/components/Welcome.astro`) in a layout, as in `src/pages/index.astro`.
 - **Assets**: static files served as-is from `public/`; imported/processed assets (optimized by Astro) live in `src/assets/`.
 
+## Coding Guidelines
+
+- Do not export types, interfaces or const variables unless or until another module needs to import them.
+
 ## Design and Theme
 
 The primary color is #5B9BCD.
