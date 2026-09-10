@@ -1,8 +1,8 @@
-import bathroom from '../assets/bathroom.jpeg';
-import jojoTank from '../assets/jojo-tank.png';
-import solarPanelHeating from '../assets/solar-panel-heating.jpeg';
-import solarHeatedPool from '../assets/solar-heated-pool.jpeg';
-import plumbingServices from '../assets/plumbing-services.jpeg';
+import bathroom from '../assets/services/bathroom.jpeg';
+import jojoTank from '../assets/services/jojo-tank.png';
+import solarPanelHeating from '../assets/services/solar-panel-heating.jpeg';
+import solarHeatedPool from '../assets/services/solar-heated-pool.jpeg';
+import plumbingServices from '../assets/services/plumbing-services.jpeg';
 
 export interface Service {
 	slug: string;
