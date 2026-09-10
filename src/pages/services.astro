@@ -1,0 +1,233 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { services } from '../data/services';
+---
+
+<Layout
+	title="Our Services | Porto Plumbing"
+	description="Domestic & industrial system upgrades, water heating, and water saving & backup water systems — see how Porto Plumbing can help."
+>
+	<Navbar />
+
+	<main>
+		<section class="page-header">
+			<div class="container page-header__inner">
+				<span class="eyebrow">What We Do</span>
+				<h1>Our Services</h1>
+				<p>
+					A closer look at how we upgrade, heat, and safeguard your water systems — for homes,
+					businesses, and industrial sites alike.
+					<br/>
+					OG: Using quality materials, proven techniques, and skilled workmanship, we ensure every plumbing and
+					solar water heating system performs reliably over time.
+				</p>
+			</div>
+		</section>
+
+		{
+			services.map((service, index) => (
+				<section id={service.slug} class="service-detail">
+					<div class:list={['container service-detail__inner', { 'is-reversed': index % 2 === 1 }]}>
+						<div class="service-detail__media">
+							<Image src={service.image} alt={service.title} width={640} height={480} />
+						</div>
+						<div class="service-detail__content">
+							<span class="eyebrow">Service</span>
+							<h2>{service.title}</h2>
+							<p class="service-detail__lead">{service.intro}</p>
+							{service.paragraphs.map((paragraph) => (
+								<p>{paragraph}</p>
+							))}
+							<ul class="service-detail__list">
+								{service.highlights.map((item) => (
+									<li>
+										<svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+											<circle cx="12" cy="12" r="9.5" fill="var(--color-primary-light)" />
+											<path
+												d="m8 12.5 2.5 2.5 5.5-5.5"
+												stroke="var(--color-primary-dark)"
+												stroke-width="1.75"
+												stroke-linecap="round"
+												stroke-linejoin="round"
+											/>
+										</svg>
+										{item}
+									</li>
+								))}
+							</ul>
+							<a href="/#contact" class="btn btn-primary">
+								Request a Quote
+							</a>
+						</div>
+					</div>
+				</section>
+			))
+		}
+
+		<section class="cta">
+			<div class="container cta__inner">
+				<div>
+					<h2>Not Sure What You Need?</h2>
+					<p>Tell us what's going on and we'll recommend the right fix — no obligation.</p>
+				</div>
+				<div class="cta__actions">
+					<a href="tel:+15551234567" class="btn btn-light">Call Now</a>
+					<a href="/#contact" class="btn btn-outline btn-outline--light">Request Service</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer />
+</Layout>
+
+<style>
+	.page-header {
+		padding-top: 72px;
+		text-align: center;
+	}
+
+	.page-header__inner {
+		max-width: 680px;
+		margin: 0 auto;
+	}
+
+	.page-header h1 {
+		font-size: 40px;
+		letter-spacing: -0.02em;
+		margin: 14px 0 16px;
+	}
+
+	.page-header p {
+		font-size: 17px;
+		color: var(--color-text-muted);
+	}
+
+	.service-detail:nth-of-type(even) {
+		background: var(--color-bg-alt);
+	}
+
+	.service-detail__inner {
+		display: grid;
+		grid-template-columns: 0.9fr 1.1fr;
+		gap: 56px;
+		align-items: center;
+	}
+
+	.service-detail__inner.is-reversed .service-detail__media {
+		order: 2;
+	}
+
+	.service-detail__media img {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 4 / 3;
+		object-fit: cover;
+		border-radius: var(--radius-lg);
+	}
+
+	.service-detail__content h2 {
+		font-size: 30px;
+		letter-spacing: -0.01em;
+		margin: 12px 0 16px;
+	}
+
+	.service-detail__lead {
+		font-size: 17px;
+		color: var(--color-text);
+		font-weight: 500;
+		margin-bottom: 16px;
+	}
+
+	.service-detail__content p {
+		color: var(--color-text-muted);
+		margin-bottom: 16px;
+		max-width: 60ch;
+	}
+
+	.service-detail__list {
+		list-style: none;
+		margin: 12px 0 28px;
+		padding: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.service-detail__list li {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		font-weight: 500;
+		font-size: 15px;
+		color: var(--color-text);
+	}
+
+	.service-detail__list svg {
+		flex-shrink: 0;
+	}
+
+	/* CTA (matches homepage banner) */
+	.cta {
+		background: linear-gradient(120deg, var(--color-primary-dark), var(--color-primary));
+		color: var(--color-white);
+	}
+
+	.cta__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 32px;
+		flex-wrap: wrap;
+	}
+
+	.cta h2 {
+		font-size: 28px;
+		margin-bottom: 8px;
+	}
+
+	.cta p {
+		color: rgba(255, 255, 255, 0.85);
+	}
+
+	.cta__actions {
+		display: flex;
+		gap: 14px;
+		flex-wrap: wrap;
+	}
+
+	.btn-outline--light {
+		border-color: rgba(255, 255, 255, 0.5);
+		color: var(--color-white);
+	}
+
+	.btn-outline--light:hover {
+		border-color: var(--color-white);
+		color: var(--color-white);
+		background: rgba(255, 255, 255, 0.1);
+	}
+
+	@media (max-width: 960px) {
+		.service-detail__inner {
+			grid-template-columns: 1fr;
+		}
+
+		.service-detail__inner.is-reversed .service-detail__media {
+			order: 0;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.page-header h1 {
+			font-size: 30px;
+		}
+
+		.cta__inner {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+</style>
