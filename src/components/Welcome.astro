@@ -1,44 +1,12 @@
 ---
 import ImagePlaceholder from './ImagePlaceholder.astro';
+import { services } from '../data/services';
 
 const stats = [
 	{ value: '20+', label: 'Years in Business' },
 	{ value: '5,000+', label: 'Jobs Completed' },
 	{ value: '24/7', label: 'Emergency Service' },
 	{ value: '100%', label: 'Satisfaction Guaranteed' }
-];
-
-const services = [
-	{
-		title: 'Emergency Plumbing Repair',
-		description: 'Fast, reliable response for burst pipes, leaks, and other urgent plumbing issues.',
-		icon: 'M12 2.5c3.5 4.2 6.5 8.1 6.5 11.7a6.5 6.5 0 1 1-13 0c0-3.6 3-7.5 6.5-11.7Z'
-	},
-	{
-		title: 'Drain & Sewer Cleaning',
-		description: 'Thorough clog removal and sewer line maintenance to keep water flowing freely.',
-		icon: 'M4 12h16M4 12a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4M4 12a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4'
-	},
-	{
-		title: 'Water Heater Installation & Repair',
-		description: 'Expert installation, repair, and maintenance for every make and model.',
-		icon: 'M9 3h6l1 4H8l1-4ZM7 7h10l1 13H6L7 7Z'
-	},
-	{
-		title: 'Solar Water Heating Systems',
-		description: 'Energy-efficient solar water heating designed and installed for lasting savings.',
-		icon: 'M12 4v2M12 18v2M4 12h2M18 12h2M6.3 6.3l1.4 1.4M16.3 16.3l1.4 1.4M6.3 17.7l1.4-1.4M16.3 7.7l1.4-1.4M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z'
-	},
-	{
-		title: 'Leak Detection & Repair',
-		description: 'Precise, non-invasive leak detection that protects your property from water damage.',
-		icon: 'M12 21s7-6.1 7-11.4A7 7 0 0 0 5 9.6C5 14.9 12 21 12 21Z'
-	},
-	{
-		title: 'Commercial Plumbing',
-		description: 'Scheduled maintenance and large-scale plumbing solutions for local businesses.',
-		icon: 'M4 21V9l8-5 8 5v12M9 21v-6h6v6M4 9h16'
-	}
 ];
 
 const whyUs = [
@@ -74,12 +42,11 @@ const testimonials = [
 	<section class="hero">
 		<div class="container hero__inner">
 			<div class="hero__content">
-				<span class="eyebrow">Licensed &amp; Insured Plumbers</span>
-				<h1>Reliable Plumbing &amp; Solar Water Heating, Done Right</h1>
+				<span class="eyebrow">Domestic &amp; Industrial Plumbing System Upgrades</span>
+				<h1>Reliable Plumbing and Solar Solutions</h1>
 				<p class="hero__lead">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porto Plumbing delivers
-					dependable repairs, installations, and maintenance for homes and businesses — backed by
-					decades of craftsmanship.
+					We specialise in solar geyser and pool heating installations, heat pumps, and plumbing services,
+					providing reliable, eco-friendly solutions for homes and businesses.
 				</p>
 				<div class="hero__actions">
 					<a href="#contact" class="btn btn-primary">Get a Free Quote</a>
@@ -116,10 +83,13 @@ const testimonials = [
 				<span class="eyebrow">What We Do</span>
 				<h2>Full-Service Plumbing &amp; Solar Solutions</h2>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-					incididunt ut labore et dolore magna aliqua.
+					We provide a wide range of professional services to meet the needs of both homes and businesses.
+					From full plumbing solutions and solar water heating to pool heating and maintenance, our team
+					delivers reliable, efficient, and sustainable solutions designed to make your life easier and your
+					systems more energy-efficient.
 				</p>
 			</div>
+
 			<div class="services__grid">
 				{
 					services.map((service) => (
@@ -137,7 +107,7 @@ const testimonials = [
 							</div>
 							<h3>{service.title}</h3>
 							<p>{service.description}</p>
-							<a href="#contact" class="service-card__link">
+							<a href={`/services#${service.slug}`} class="service-card__link">
 								Learn more
 								<svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
 									<path
@@ -152,6 +122,10 @@ const testimonials = [
 						</div>
 					))
 				}
+			</div>
+
+			<div class="services__footer">
+				<a href="/services" class="btn btn-outline">View All Services</a>
 			</div>
 		</div>
 	</section>
@@ -407,6 +381,12 @@ const testimonials = [
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
 		gap: 24px;
+	}
+
+	.services__footer {
+		display: flex;
+		justify-content: center;
+		margin-top: 40px;
 	}
 
 	.service-card {
