@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import logo from '../assets/branding/logo-porto-plumbing.png';
 import { services } from '../data/services';
 import { contact } from '../data/contact';
@@ -16,20 +17,11 @@ const quickLinks = [
 ];
 
 const socials = [
-	{
-		label: 'Facebook',
-		href: '#',
-		path: 'M14 8.5h2.5V5.7c-.4-.1-1.6-.2-3-.2-3 0-4.9 1.8-4.9 5.1v2.5H5.9v3.2h2.7V21h3.3v-4.7h2.6l.4-3.2h-3V11c0-1 .3-1.6 1.6-1.6Z'
-	},
+	{ label: 'Facebook', href: 'https://facebook.com/portoplumbing1', icon: 'simple-icons:facebook' },
 	{
 		label: 'Instagram',
-		href: '#',
-		path: 'M12 8.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Zm0 6.3a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Zm4.8-6.4a.9.9 0 1 1-1.8 0 .9.9 0 0 1 1.8 0ZM20 8.4c-.1-1-.3-1.8-.7-2.4a4.4 4.4 0 0 0-2.5-2.5c-.6-.4-1.4-.6-2.4-.7-1-.1-1.4-.1-3.8-.1s-2.8 0-3.8.1c-1 .1-1.8.3-2.4.7a4.4 4.4 0 0 0-2.5 2.5c-.4.6-.6 1.4-.7 2.4C1.1 9.4 1.1 9.8 1.1 12.2s0 2.8.1 3.8c.1 1 .3 1.8.7 2.4a4.4 4.4 0 0 0 2.5 2.5c.6.4 1.4.6 2.4.7 1 .1 1.4.1 3.8.1s2.8 0 3.8-.1c1-.1 1.8-.3 2.4-.7a4.4 4.4 0 0 0 2.5-2.5c.4-.6.6-1.4.7-2.4.1-1 .1-1.4.1-3.8s0-2.8-.1-3.8Z'
-	},
-	{
-		label: 'X',
-		href: '#',
-		path: 'm4 4 6.6 8.8L4.3 20h1.9l5.4-6.2 4.2 6.2H20l-6.9-9.3L19.1 4h-1.9l-5 5.7L8.4 4H4Z'
+		href: 'https://instagram.com/portosolarworx_plumbing',
+		icon: 'simple-icons:instagram'
 	}
 ];
 ---
@@ -49,10 +41,8 @@ const socials = [
 			<div class="footer__socials">
 				{
 					socials.map((social) => (
-						<a href={social.href} aria-label={social.label}>
-							<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-								<path d={social.path} />
-							</svg>
+						<a href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>
+							<Icon name={social.icon} width={16} height={16} aria-hidden="true" />
 						</a>
 					))
 				}
@@ -89,50 +79,19 @@ const socials = [
 			<h3>Contact Us</h3>
 			<ul class="footer__contact">
 				<li>
-					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-						<path
-							d="M12 21s7-6.1 7-11.4A7 7 0 0 0 5 9.6C5 14.9 12 21 12 21Z"
-							stroke="currentColor"
-							stroke-width="1.5"></path>
-						<circle cx="12" cy="9.5" r="2.3" stroke="currentColor" stroke-width="1.5"></circle>
-					</svg>
+					<Icon name="lucide:map-pin" width={16} height={16} aria-hidden="true" />
 					<ExternalLink href={contact.address.mapsUrl}>{contact.address.display}</ExternalLink>
 				</li>
 				<li>
-					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-						<path
-							d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.5.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.5.1.4 0 .8-.2 1L6.6 10.8Z"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linejoin="round"></path>
-					</svg>
+					<Icon name="lucide:phone" width={16} height={16} aria-hidden="true" />
 					<a href={contact.phone.href}>{contact.phone.display}</a>
 				</li>
 				<li>
-					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-						<path
-							d="M3.5 6.5h17v11h-17z"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linejoin="round"></path>
-						<path
-							d="m4 7 8 6 8-6"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linejoin="round"></path>
-					</svg>
+					<Icon name="lucide:mail" width={16} height={16} aria-hidden="true" />
 					<a href={`mailto:${contact.email}`}>{contact.email}</a>
 				</li>
 				<li>
-					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-						<circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.5"></circle>
-						<path
-							d="M12 7.5V12l3 2"
-							stroke="currentColor"
-							stroke-width="1.5"
-							stroke-linecap="round"
-							stroke-linejoin="round"></path>
-					</svg>
+					<Icon name="lucide:clock" width={16} height={16} aria-hidden="true" />
 					{contact.hours}
 				</li>
 			</ul>
